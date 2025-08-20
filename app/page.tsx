@@ -76,7 +76,7 @@ function AnimatedCounter({ end, duration = 2000, suffix = "" }: { end: number; d
   }, [isInView, end, duration])
 
   return (
-    <div ref={ref} className="text-4xl font-bold text-orange-500">
+    <div ref={ref} className="text-2xl font-bold text-gray-700">
       {count}
       {suffix}
     </div>
@@ -92,8 +92,8 @@ export default function Home() {
   return (
     <div className="flex min-h-screen flex-col overflow-x-hidden">
       {/* Header */}
-      <header className="sticky top-0 z-50 w-full border-b bg-background/80 backdrop-blur-md supports-[backdrop-filter]:bg-background/60 transition-all duration-300">
-        <div className="container flex h-16 items-center justify-between">
+      <header className="sticky top-0 z-50 w-full border-b bg-background/80 backdrop-blur-md supports-[backdrop-filter]:bg-background/60 transition-all duration-300" style={{ height: '10vh' }}>
+        <div className="container mx-auto px-4 flex h-full items-center justify-between">
           <div className="flex items-center gap-2">
             <div className="relative">
               <Image
@@ -143,7 +143,7 @@ export default function Home() {
           <div className="flex items-center gap-4">
             <Button className="bg-orange-500 hover:bg-orange-600 text-white shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105">
               <Sparkles className="mr-2 h-4 w-4" />
-              Demo Gratuita
+              Agende uma conversa estratégica
             </Button>
 
             {/* Mobile Menu Button */}
@@ -156,7 +156,7 @@ export default function Home() {
         {/* Mobile Navigation */}
         {isMenuOpen && (
           <div className="md:hidden border-t bg-background/95 backdrop-blur-md">
-            <nav className="container py-4 space-y-4">
+            <nav className="container mx-auto px-4 py-4 space-y-4">
               <Link href="#solution" className="block text-sm font-medium text-muted-foreground hover:text-orange-500">
                 Solução
               </Link>
@@ -179,7 +179,7 @@ export default function Home() {
 
       <main className="flex-1">
         {/* Hero Section */}
-        <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-gradient-to-br from-orange-50 via-background to-purple-50">
+        <section className="relative flex items-center justify-center overflow-hidden bg-gradient-to-br from-orange-50 via-background to-purple-50" style={{ height: '70vh' }}>
           {/* Animated Background Elements */}
           <div className="absolute inset-0 overflow-hidden">
             <div className="absolute top-1/4 left-1/4 w-64 h-64 bg-orange-100 rounded-full blur-3xl animate-pulse"></div>
@@ -189,7 +189,7 @@ export default function Home() {
             ></div>
           </div>
 
-          <div className="container relative z-10 py-20 px-4">
+          <div className="container relative z-10 px-4 h-full flex items-center">
             <div
               ref={heroRef}
               className={`grid gap-12 lg:grid-cols-2 lg:gap-16 items-center transition-all duration-1000 ${
@@ -203,41 +203,33 @@ export default function Home() {
                     Solução Integrada de Nova Geração
                   </div>
 
-                  <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold tracking-tight leading-tight">
-                    Transforme
-                    <span className="block text-orange-500">
-                      Atendimento
+                  <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight leading-tight">
+                    O <span className="text-orange-500">futuro padrão</span>
+                    <span className="block">
+                      do atendimento
                     </span>
-                    em Crescimento
                   </h1>
 
-                  <p className="text-xl md:text-2xl text-muted-foreground leading-relaxed max-w-2xl">
+                  <p className="text-sm md:text-base text-muted-foreground leading-relaxed max-w-2xl">
                     A única solução que une <strong>Inteligência Artificial</strong>, <strong>Dados</strong> e
                     <strong> Consultoria Estratégica</strong> para revolucionar seus resultados de Conversão, Retenção e
                     Fidelização.
                   </p>
                 </div>
 
-                <div className="flex flex-col sm:flex-row gap-4">
+                <div className="flex justify-start">
                   <Button
                     size="lg"
                     className="bg-orange-500 hover:bg-orange-600 text-white shadow-xl hover:shadow-2xl transition-all duration-300 transform hover:scale-105 group"
                   >
                     <Play className="mr-2 h-5 w-5 group-hover:scale-110 transition-transform" />
-                    Ver Demonstração
+                    Agende uma conversa estratégica
                     <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
-                  </Button>
-                  <Button
-                    size="lg"
-                    variant="outline"
-                    className="border-orange-500 text-orange-500 hover:bg-orange-500 hover:text-white transition-all duration-300"
-                  >
-                    Falar com Especialista
                   </Button>
                 </div>
 
                 {/* Trust Indicators */}
-                <div className="flex items-center gap-8 pt-8">
+                <div className="flex items-center gap-8 pt-1">
                   <div className="text-center">
                     <AnimatedCounter end={500} suffix="+" />
                     <p className="text-sm text-muted-foreground">Empresas Atendidas</p>
@@ -341,6 +333,95 @@ export default function Home() {
           </div>
         </section>
 
+        {/* Clients Section */}
+        <section className="bg-gray-50 flex items-center justify-center" style={{ height: '20vh' }}>
+          <div className="container mx-auto px-4">
+            <div className="flex items-center justify-center gap-8 md:gap-12 lg:gap-16 flex-wrap">
+              <div className="flex items-center justify-center w-24 h-16">
+                <Image
+                  src="/clientes/Nextar.png"
+                  alt="Nextar"
+                  width={96}
+                  height={64}
+                  className="h-12 w-auto object-contain filter grayscale opacity-70 hover:grayscale-0 hover:opacity-100 transition-all duration-300"
+                />
+              </div>
+              <div className="flex items-center justify-center w-24 h-16">
+                <Image
+                  src="/clientes/Snowland.png"
+                  alt="Snowland Gramado"
+                  width={96}
+                  height={64}
+                  className="h-12 w-auto object-contain filter grayscale opacity-70 hover:grayscale-0 hover:opacity-100 transition-all duration-300"
+                />
+              </div>
+              <div className="flex items-center justify-center w-24 h-16">
+                <Image
+                  src="/clientes/branco.png"
+                  alt="Branco"
+                  width={96}
+                  height={64}
+                  className="h-12 w-auto object-contain filter grayscale opacity-70 hover:grayscale-0 hover:opacity-100 transition-all duration-300"
+                />
+              </div>
+              <div className="flex items-center justify-center w-24 h-16">
+                <Image
+                  src="/clientes/eco.png"
+                  alt="Eco"
+                  width={96}
+                  height={64}
+                  className="h-12 w-auto object-contain filter grayscale opacity-70 hover:grayscale-0 hover:opacity-100 transition-all duration-300"
+                />
+              </div>
+              <div className="flex items-center justify-center w-24 h-16">
+                <Image
+                  src="/clientes/ferrasa.png"
+                  alt="Ferrasa"
+                  width={96}
+                  height={64}
+                  className="h-12 w-auto object-contain filter grayscale opacity-70 hover:grayscale-0 hover:opacity-100 transition-all duration-300"
+                />
+              </div>
+              <div className="flex items-center justify-center w-24 h-16">
+                <Image
+                  src="/clientes/havan.png"
+                  alt="Havan"
+                  width={96}
+                  height={64}
+                  className="h-12 w-auto object-contain filter grayscale opacity-70 hover:grayscale-0 hover:opacity-100 transition-all duration-300"
+                />
+              </div>
+              <div className="flex items-center justify-center w-24 h-16">
+                <Image
+                  src="/clientes/ouze.png"
+                  alt="Ouze"
+                  width={96}
+                  height={64}
+                  className="h-12 w-auto object-contain filter grayscale opacity-70 hover:grayscale-0 hover:opacity-100 transition-all duration-300"
+                />
+              </div>
+              <div className="flex items-center justify-center w-24 h-16">
+                <Image
+                  src="/clientes/studioz.png"
+                  alt="Studioz"
+                  width={96}
+                  height={64}
+                  className="h-12 w-auto object-contain filter grayscale opacity-70 hover:grayscale-0 hover:opacity-100 transition-all duration-300"
+                />
+              </div>
+              <div className="flex items-center justify-center w-24 h-16">
+                <Image
+                  src="/clientes/superlogica.png"
+                  alt="Superlogica"
+                  width={96}
+                  height={64}
+                  className="h-12 w-auto object-contain filter grayscale opacity-70 hover:grayscale-0 hover:opacity-100 transition-all duration-300"
+                />
+              </div>
+            </div>
+          </div>
+        </section>
+
         {/* Solution Overview Section */}
         <section id="solution" className="py-20 bg-background">
           <SolutionOverview />
@@ -365,7 +446,7 @@ export default function Home() {
 
             <div className="grid md:grid-cols-3 gap-8">
               <Card className="p-8 text-center">
-                <Brain className="h-12 w-12 text-orange-500 mx-auto mb-4" />
+                <Brain className="h-12 w-12 text-gray-600 mx-auto mb-4" />
                 <h3 className="text-xl font-bold mb-4">Inteligência Artificial</h3>
                 <p className="text-muted-foreground">
                   IA avançada que automatiza tarefas, personaliza interações e prevê comportamentos
@@ -373,7 +454,7 @@ export default function Home() {
               </Card>
 
               <Card className="p-8 text-center">
-                <Database className="h-12 w-12 text-purple-500 mx-auto mb-4" />
+                <Database className="h-12 w-12 text-gray-600 mx-auto mb-4" />
                 <h3 className="text-xl font-bold mb-4">Análise de Dados</h3>
                 <p className="text-muted-foreground">
                   Visão 360° do cliente com dados unificados para decisões estratégicas precisas
@@ -381,7 +462,7 @@ export default function Home() {
               </Card>
 
               <Card className="p-8 text-center">
-                <HandshakeIcon className="h-12 w-12 text-teal-500 mx-auto mb-4" />
+                <HandshakeIcon className="h-12 w-12 text-gray-600 mx-auto mb-4" />
                 <h3 className="text-xl font-bold mb-4">Consultoria Estratégica</h3>
                 <p className="text-muted-foreground">
                   Especialistas dedicados que traduzem tecnologia em resultados reais
@@ -447,7 +528,7 @@ export default function Home() {
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
                 <Button size="lg" variant="secondary" className="bg-white text-orange-500 hover:bg-gray-100">
                   <Play className="mr-2 h-5 w-5" />
-                  Agendar Demo
+                  Agende uma conversa estratégica
                 </Button>
                 <Button size="lg" variant="outline" className="border-white text-white hover:bg-white hover:text-orange-500">
                   Falar com Especialista
