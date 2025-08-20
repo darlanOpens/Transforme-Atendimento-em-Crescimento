@@ -1,3 +1,5 @@
+"use client"
+
 import React, { useState, useEffect } from 'react';
 import { useId } from 'react';
 import { Target, BarChart3, Handshake, Shield } from 'lucide-react';
