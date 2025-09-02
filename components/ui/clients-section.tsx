@@ -2,88 +2,88 @@ import Image from "next/image"
 
 export default function ClientsSection() {
   return (
-    <section className="bg-gray-50 flex items-center justify-center" style={{ height: '20vh' }}>
+    <section className="bg-gray-50 flex items-center justify-center py-8">
       <div className="container mx-auto px-4">
-        <div className="flex items-center justify-center gap-8 md:gap-12 lg:gap-16 flex-wrap">
-          <div className="flex items-center justify-center w-24 h-16">
+        <div className="flex items-center justify-center gap-2 sm:gap-4 md:gap-6 lg:gap-8 xl:gap-12 overflow-x-auto scrollbar-hide">
+          <div className="flex items-center justify-center w-16 h-12 sm:w-20 sm:h-14 md:w-24 md:h-16 flex-shrink-0">
             <Image
               src="/clientes/Nextar.png"
               alt="Nextar"
               width={96}
               height={64}
-              className="h-12 w-auto object-contain filter grayscale opacity-70 hover:grayscale-0 hover:opacity-100 transition-all duration-300"
+              className="h-8 w-auto sm:h-10 md:h-12 object-contain filter grayscale opacity-70 hover:grayscale-0 hover:opacity-100 transition-all duration-300"
             />
           </div>
-          <div className="flex items-center justify-center w-24 h-16">
+          <div className="flex items-center justify-center w-16 h-12 sm:w-20 sm:h-14 md:w-24 md:h-16 flex-shrink-0">
             <Image
               src="/clientes/Snowland.png"
               alt="Snowland Gramado"
               width={96}
               height={64}
-              className="h-12 w-auto object-contain filter grayscale opacity-70 hover:grayscale-0 hover:opacity-100 transition-all duration-300"
+              className="h-8 w-auto sm:h-10 md:h-12 object-contain filter grayscale opacity-70 hover:grayscale-0 hover:opacity-100 transition-all duration-300"
             />
           </div>
-          <div className="flex items-center justify-center w-24 h-16">
+          <div className="flex items-center justify-center w-16 h-12 sm:w-20 sm:h-14 md:w-24 md:h-16 flex-shrink-0">
             <Image
               src="/clientes/branco.png"
               alt="Branco"
               width={96}
               height={64}
-              className="h-12 w-auto object-contain filter grayscale opacity-70 hover:grayscale-0 hover:opacity-100 transition-all duration-300"
+              className="h-8 w-auto sm:h-10 md:h-12 object-contain filter grayscale opacity-70 hover:grayscale-0 hover:opacity-100 transition-all duration-300"
             />
           </div>
-          <div className="flex items-center justify-center w-24 h-16">
+          <div className="flex items-center justify-center w-16 h-12 sm:w-20 sm:h-14 md:w-24 md:h-16 flex-shrink-0">
             <Image
               src="/clientes/eco.png"
               alt="Eco"
               width={96}
               height={64}
-              className="h-12 w-auto object-contain filter grayscale opacity-70 hover:grayscale-0 hover:opacity-100 transition-all duration-300"
+              className="h-8 w-auto sm:h-10 md:h-12 object-contain filter grayscale opacity-70 hover:grayscale-0 hover:opacity-100 transition-all duration-300"
             />
           </div>
-          <div className="flex items-center justify-center w-24 h-16">
+          <div className="flex items-center justify-center w-16 h-12 sm:w-20 sm:h-14 md:w-24 md:h-16 flex-shrink-0">
             <Image
               src="/clientes/ferrasa.png"
               alt="Ferrasa"
               width={96}
               height={64}
-              className="h-12 w-auto object-contain filter grayscale opacity-70 hover:grayscale-0 hover:opacity-100 transition-all duration-300"
+              className="h-8 w-auto sm:h-10 md:h-12 object-contain filter grayscale opacity-70 hover:grayscale-0 hover:opacity-100 transition-all duration-300"
             />
           </div>
-          <div className="flex items-center justify-center w-24 h-16">
+          <div className="flex items-center justify-center w-16 h-12 sm:w-20 sm:h-14 md:w-24 md:h-16 flex-shrink-0">
             <Image
               src="/clientes/havan.png"
               alt="Havan"
               width={96}
               height={64}
-              className="h-12 w-auto object-contain filter grayscale opacity-70 hover:grayscale-0 hover:opacity-100 transition-all duration-300"
+              className="h-8 w-auto sm:h-10 md:h-12 object-contain filter grayscale opacity-70 hover:grayscale-0 hover:opacity-100 transition-all duration-300"
             />
           </div>
-          <div className="flex items-center justify-center w-24 h-16">
+          <div className="flex items-center justify-center w-16 h-12 sm:w-20 sm:h-14 md:w-24 md:h-16 flex-shrink-0">
             <Image
               src="/clientes/ouze.png"
               alt="Ouze"
               width={96}
               height={64}
-              className="h-12 w-auto object-contain filter grayscale opacity-70 hover:grayscale-0 hover:opacity-100 transition-all duration-300"
+              className="h-8 w-auto sm:h-10 md:h-12 object-contain filter grayscale opacity-70 hover:grayscale-0 hover:opacity-100 transition-all duration-300"
             />
           </div>
-          <div className="flex items-center justify-center w-24 h-16">
+          <div className="flex items-center justify-center w-16 h-12 sm:w-20 sm:h-14 md:w-24 md:h-16 flex-shrink-0">
             <Image
               src="/clientes/studioz.png"
               alt="Studioz"
               width={96}
               height={64}
-              className="h-12 w-auto object-contain filter grayscale opacity-70 hover:grayscale-0 hover:opacity-100 transition-all duration-300"
+              className="h-8 w-auto sm:h-10 md:h-12 object-contain filter grayscale opacity-70 hover:grayscale-0 hover:opacity-100 transition-all duration-300"
             />
           </div>
-          <div className="flex items-center justify-center w-24 h-16">
+          <div className="flex items-center justify-center w-16 h-12 sm:w-20 sm:h-14 md:w-24 md:h-16 flex-shrink-0">
             <Image
               src="/clientes/superlogica.png"
               alt="Superlogica"
               width={96}
               height={64}
-              className="h-12 w-auto object-contain filter grayscale opacity-70 hover:grayscale-0 hover:opacity-100 transition-all duration-300"
+              className="h-8 w-auto sm:h-10 md:h-12 object-contain filter grayscale opacity-70 hover:grayscale-0 hover:opacity-100 transition-all duration-300"
             />
           </div>
         </div>
