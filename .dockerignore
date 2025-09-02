@@ -101,6 +101,7 @@ docker-compose.yaml
 
 # Documentação
 README.md
+README-EasyPanel.md
 *.md
 
 # Arquivos de desenvolvimento

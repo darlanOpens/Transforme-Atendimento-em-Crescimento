@@ -10,11 +10,16 @@ WORKDIR /app
 # Copiar arquivos de dependências
 COPY package.json package-lock.json* ./
 
-# Instalar dependências
-RUN npm ci --only=production && npm cache clean --force
+# Limpar cache e instalar TODAS as dependências
+RUN npm cache clean --force && \
+    npm ci --no-optional && \
+    npm cache clean --force
 
 # Copiar código fonte
 COPY . .
+
+# Verificar se os arquivos foram copiados corretamente
+RUN ls -la components/ui/
 
 # Build da aplicação
 RUN npm run build

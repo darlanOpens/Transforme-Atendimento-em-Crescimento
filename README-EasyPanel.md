@@ -66,12 +66,19 @@ Configurado para `unless-stopped` para garantir que a aplicação reinicie autom
 - A aplicação roda como usuário não-root por segurança
 - O modo `standalone` do Next.js é necessário para o Docker funcionar corretamente
 - O `.dockerignore` exclui arquivos desnecessários para otimizar o build
+- **TODAS as dependências são instaladas durante o build** (incluindo devDependencies)
 
 ## 🐛 Troubleshooting
 
 ### Build falha
 - Verifique se o `next.config.ts` tem `output: 'standalone'`
 - Confirme se todas as dependências estão no `package.json`
+- Execute `./build-debug.sh` localmente para debug
+
+### Erro de módulos não encontrados
+- Verifique se todos os componentes existem em `components/ui/`
+- Confirme se o `tsconfig.json` tem o path `@/*` configurado
+- Limpe o cache do npm: `npm cache clean --force`
 
 ### Aplicação não inicia
 - Verifique os logs do container no EasyPanel
@@ -81,7 +88,7 @@ Configurado para `unless-stopped` para garantir que a aplicação reinicie autom
 ### Performance
 - A imagem usa Alpine Linux para reduzir o tamanho
 - O build é otimizado para produção
-- Dependências de desenvolvimento são excluídas
+- Cache do npm é limpo após instalação
 
 ## 🔄 Atualizações
 
@@ -90,9 +97,22 @@ Para atualizar a aplicação:
 2. No EasyPanel, clique em "Redeploy"
 3. Aguarde o novo build e deploy
 
+## 🧪 Teste Local
+
+Para testar localmente:
+```bash
+# Usando Docker Compose
+docker-compose up --build
+
+# Ou usando o script de debug
+chmod +x build-debug.sh
+./build-debug.sh
+```
+
 ## 📞 Suporte
 
 Se encontrar problemas:
 1. Verifique os logs no EasyPanel
 2. Confirme se o Dockerfile está correto
 3. Teste localmente com `docker-compose up`
+4. Execute o script de debug: `./build-debug.sh`
