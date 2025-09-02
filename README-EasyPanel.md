@@ -67,6 +67,7 @@ Configurado para `unless-stopped` para garantir que a aplicação reinicie autom
 - O modo `standalone` do Next.js é necessário para o Docker funcionar corretamente
 - O `.dockerignore` exclui arquivos desnecessários para otimizar o build
 - **TODAS as dependências são instaladas durante o build** (incluindo devDependencies)
+- **ESLint é desabilitado durante o build** para evitar conflitos
 
 ## 🐛 Troubleshooting
 
@@ -79,6 +80,11 @@ Configurado para `unless-stopped` para garantir que a aplicação reinicie autom
 - Verifique se todos os componentes existem em `components/ui/`
 - Confirme se o `tsconfig.json` tem o path `@/*` configurado
 - Limpe o cache do npm: `npm cache clean --force`
+
+### Erro de ESLint
+- O ESLint está configurado para ser ignorado durante o build
+- Para desenvolvimento local, use: `npm run lint` para verificar erros
+- A configuração do ESLint está otimizada para Next.js 13+ App Router
 
 ### Aplicação não inicia
 - Verifique os logs do container no EasyPanel
@@ -116,3 +122,4 @@ Se encontrar problemas:
 2. Confirme se o Dockerfile está correto
 3. Teste localmente com `docker-compose up`
 4. Execute o script de debug: `./build-debug.sh`
+5. Verifique se o ESLint está configurado corretamente
