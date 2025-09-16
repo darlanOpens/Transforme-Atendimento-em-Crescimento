@@ -1,7 +1,11 @@
+"use client"
+
 import { Button } from "@/components/ui/button"
 import { Play } from "lucide-react"
+import { usePopup } from "@/contexts/popup-context"
 
 export default function CTASection() {
+  const { openPopup } = usePopup()
   return (
     <section className="py-20 bg-gradient-to-r from-orange-500 to-orange-600 text-white">
       <div className="container mx-auto px-4 text-center">
@@ -13,7 +17,12 @@ export default function CTASection() {
             Agende uma demonstração gratuita e veja como nossa solução pode revolucionar seus resultados
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button size="lg" variant="secondary" className="bg-white text-orange-500 hover:bg-gray-100">
+            <Button
+              onClick={openPopup}
+              size="lg"
+              variant="secondary"
+              className="bg-white text-orange-500 hover:bg-gray-100"
+            >
               <Play className="mr-2 h-5 w-5" />
               Agende uma conversa estratégica
             </Button>

@@ -2,6 +2,8 @@ import type React from "react"
 import type { Metadata } from "next"
 import { Plus_Jakarta_Sans } from "next/font/google"
 import "./globals.css"
+import { PopupProvider } from "@/contexts/popup-context"
+import ConversaEstrategicaPopup from "@/components/ui/conversa-estrategica-popup"
 
 const plusJakartaSans = Plus_Jakarta_Sans({ 
   subsets: ["latin"],
@@ -62,7 +64,12 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="pt-BR">
-      <body className={plusJakartaSans.className}>{children}</body>
+      <body className={plusJakartaSans.className}>
+        <PopupProvider>
+          {children}
+          <ConversaEstrategicaPopup />
+        </PopupProvider>
+      </body>
     </html>
   )
 }

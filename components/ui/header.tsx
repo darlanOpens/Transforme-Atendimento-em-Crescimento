@@ -5,9 +5,11 @@ import Link from "next/link"
 import Image from "next/image"
 import { Button } from "@/components/ui/button"
 import { Menu, X, Sparkles } from "lucide-react"
+import { usePopup } from "@/contexts/popup-context"
 
 export default function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
+  const { openPopup } = usePopup()
 
   return (
     <header className="sticky top-0 z-50 w-full border-b bg-background/80 backdrop-blur-md supports-[backdrop-filter]:bg-background/60 transition-all duration-300" style={{ height: '10vh' }}>
@@ -59,7 +61,10 @@ export default function Header() {
         </nav>
 
         <div className="flex items-center gap-4">
-          <Button className="bg-orange-500 hover:bg-orange-600 text-white shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105">
+          <Button
+            onClick={openPopup}
+            className="bg-orange-500 hover:bg-orange-600 text-white shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105"
+          >
             <Sparkles className="mr-2 h-4 w-4" />
             Agende uma conversa estratégica
           </Button>

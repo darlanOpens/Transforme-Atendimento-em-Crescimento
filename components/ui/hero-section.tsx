@@ -5,6 +5,7 @@ import { useRef, useState, useEffect } from "react"
 import { Button } from "@/components/ui/button"
 import { ArrowRight, Zap, Play, Brain, TrendingUp } from "lucide-react"
 import AnimatedCounter from "./animated-counter"
+import { usePopup } from "@/contexts/popup-context"
 
 // Custom hook for intersection observer
 function useInView(threshold = 0.1) {
@@ -33,6 +34,7 @@ function useInView(threshold = 0.1) {
 
 export default function HeroSection() {
   const [heroRef, heroInView] = useInView()
+  const { openPopup } = usePopup()
 
   return (
     <section className="relative flex items-center justify-center overflow-hidden bg-gradient-to-br from-orange-50 via-background to-purple-50" style={{ height: '70vh' }}>
@@ -75,6 +77,7 @@ export default function HeroSection() {
 
             <div className="flex justify-start">
               <Button
+                onClick={openPopup}
                 size="lg"
                 className="bg-orange-500 hover:bg-orange-600 text-white shadow-xl hover:shadow-2xl transition-all duration-300 transform hover:scale-105 group"
               >
