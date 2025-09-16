@@ -29,7 +29,7 @@ export const metadata: Metadata = {
     siteName: "Opens",
     images: [
       {
-        url: "/opens-logo-white.png",
+        url: "/futuro_do_atendimento/opens-logo-white.png",
         width: 800,
         height: 600,
         alt: "Logo da Opens",
@@ -42,7 +42,7 @@ export const metadata: Metadata = {
     description:
       "A solução integrada que une Inteligência Artificial, Dados e Consultoria Estratégica para impulsionar resultados reais.",
     creator: "@opens",
-    images: ["/opens-logo-white.png"],
+    images: ["/futuro_do_atendimento/opens-logo-white.png"],
   },
   robots: {
     index: true,
