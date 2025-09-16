@@ -6,6 +6,7 @@ import Image from "next/image"
 import { Button } from "@/components/ui/button"
 import { Menu, X, Sparkles } from "lucide-react"
 import { usePopup } from "@/contexts/popup-context"
+import { getImagePath } from "@/lib/image-path"
 
 export default function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
@@ -17,7 +18,7 @@ export default function Header() {
         <div className="flex items-center gap-2">
           <div className="relative">
             <Image
-              src="/Logo Opens.png"
+              src={getImagePath("/Logo Opens.png")}
               alt="Logo Opens"
               width={128}
               height={40}

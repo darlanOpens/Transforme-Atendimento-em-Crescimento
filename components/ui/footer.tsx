@@ -1,4 +1,5 @@
 import Image from "next/image"
+import { getImagePath } from "@/lib/image-path"
 
 export default function Footer() {
   return (
@@ -6,7 +7,7 @@ export default function Footer() {
       <div className="container mx-auto px-4 text-center">
         <div className="flex justify-center mb-8">
           <Image
-            src="/Logo Opens.png"
+            src={getImagePath("/Logo Opens.png")}
             alt="Logo Opens"
             width={128}
             height={40}
