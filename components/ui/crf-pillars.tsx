@@ -142,16 +142,16 @@ export default function CRFPillarsSection({ className }: { className?: string })
             <Users className="h-4 w-4" />
             Pilares CRF
           </div>
-          <h2 className="text-4xl md:text-5xl font-bold tracking-tight">
-            Otimize todo o<span className="block text-[#FF7A00]">ciclo de vida do cliente</span>
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold tracking-tight">
+            Otimize todo o<span className="block text-[#FF7A00] mt-1">ciclo de vida do cliente</span>
           </h2>
-          <p className="mx-auto max-w-3xl text-xl text-muted-foreground leading-relaxed">
+          <p className="mx-auto max-w-3xl text-base sm:text-lg md:text-xl text-muted-foreground leading-relaxed">
             Nossa solução integrada atua nos três pilares essenciais para o crescimento sustentável do seu negócio.
           </p>
         </motion.div>
 
-        <motion.div 
-          className="grid lg:grid-cols-3 gap-8"
+        <motion.div
+          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8"
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           viewport={{ once: true }}

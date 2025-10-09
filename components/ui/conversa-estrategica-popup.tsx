@@ -8,6 +8,13 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@
 import { X, ArrowRight } from "lucide-react"
 import { usePopup } from "@/contexts/popup-context"
 
+// Declare dataLayer type for GTM
+declare global {
+  interface Window {
+    dataLayer: any[]
+  }
+}
+
 // Opções do select
 const segmentoOptions = [
   "Saúde", "Educação", "Varejo", "Tecnologia", "Serviços", "Indústria",
@@ -132,6 +139,38 @@ export default function ConversaEstrategicaPopup() {
       })
 
       if (response.ok) {
+        // Disparar evento para GTM/RD Station
+        try {
+          if (typeof window !== 'undefined' && window.dataLayer) {
+            window.dataLayer.push({
+              'event': 'form_submission',
+              'formName': 'Conversa Estratégica',
+              'formId': 'conversa_estrategica',
+              'conversionName': 'Lead - Conversa Estratégica',
+              'formData': {
+                'nome': formData.nome,
+                'email': formData.email,
+                'telefone': cleanWhatsapp,
+                'empresa': formData.empresa,
+                'segmento': formData.segmento
+              }
+            })
+
+            // Evento específico para RD Station
+            window.dataLayer.push({
+              'event': 'rdstation_conversion',
+              'conversion_identifier': 'conversa-estrategica',
+              'email': formData.email,
+              'name': formData.nome,
+              'mobile_phone': cleanWhatsapp,
+              'company': formData.empresa,
+              'cf_segmento': formData.segmento
+            })
+          }
+        } catch (e) {
+          console.error('Erro ao enviar para GTM:', e)
+        }
+
         // Salvar nome no localStorage
         try {
           localStorage.setItem('nomeCliente', formData.nome)
@@ -187,37 +226,37 @@ export default function ConversaEstrategicaPopup() {
             animate={{ opacity: 1, scale: 1, y: 0 }}
             exit={{ opacity: 0, scale: 0.95, y: 10 }}
             transition={{ duration: 0.2, ease: "easeOut" }}
-            className="relative w-full max-w-2xl max-h-[90vh] overflow-y-auto bg-white rounded-2xl shadow-2xl border border-gray-200"
+            className="relative w-full max-w-2xl max-h-[95vh] overflow-y-auto bg-white rounded-xl sm:rounded-2xl shadow-2xl border border-gray-200"
             onClick={(e) => e.stopPropagation()}
           >
-            {/* Close button */}
+            {/* Close button - Mobile optimized */}
             <button
               onClick={closePopup}
-              className="absolute top-4 right-4 z-10 p-2 text-gray-400 hover:text-gray-600 hover:bg-gray-100 rounded-full transition-colors"
+              className="absolute top-3 right-3 sm:top-4 sm:right-4 z-10 p-2.5 sm:p-2 text-gray-400 hover:text-gray-600 hover:bg-gray-100 rounded-full transition-colors min-w-[44px] min-h-[44px] flex items-center justify-center"
               aria-label="Fechar"
             >
-              <X className="h-5 w-5" />
+              <X className="h-6 w-6 sm:h-5 sm:w-5" />
             </button>
 
-            <div className="p-8">
+            <div className="p-5 sm:p-8">
               {/* Header */}
-              <div className="text-center mb-8">
-                <div className="inline-block rounded-full bg-orange-100 px-4 py-2 text-sm font-semibold text-orange-600 mb-4">
+              <div className="text-center mb-6 sm:mb-8">
+                <div className="inline-block rounded-full bg-orange-100 px-3 py-1.5 sm:px-4 sm:py-2 text-xs sm:text-sm font-semibold text-orange-600 mb-3 sm:mb-4">
                   🎯 Conversa Estratégica
                 </div>
-                <h2 className="text-3xl font-bold text-gray-900 mb-3">
+                <h2 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-2 sm:mb-3 px-2">
                   Agende sua Conversa Estratégica
                 </h2>
-                <p className="text-gray-600 text-lg">
+                <p className="text-gray-600 text-sm sm:text-base md:text-lg px-2">
                   30 minutos para descobrir como transformar seu atendimento em crescimento
                 </p>
               </div>
 
               {/* Form */}
-              <form onSubmit={handleFormSubmit} className="space-y-6">
-                <div className="grid gap-4 md:grid-cols-2">
+              <form onSubmit={handleFormSubmit} className="space-y-4 sm:space-y-6">
+                <div className="grid gap-4 sm:grid-cols-2">
                   <div>
-                    <label htmlFor="nome" className="block text-sm font-semibold text-gray-700 mb-2">
+                    <label htmlFor="nome" className="block text-xs sm:text-sm font-semibold text-gray-700 mb-1.5 sm:mb-2">
                       Nome Completo *
                     </label>
                     <Input
@@ -227,11 +266,11 @@ export default function ConversaEstrategicaPopup() {
                       value={formData.nome}
                       onChange={handleInputChange}
                       required
-                      className="h-12"
+                      className="h-11 sm:h-12 text-base"
                     />
                   </div>
                   <div>
-                    <label htmlFor="email" className="block text-sm font-semibold text-gray-700 mb-2">
+                    <label htmlFor="email" className="block text-xs sm:text-sm font-semibold text-gray-700 mb-1.5 sm:mb-2">
                       E-mail *
                     </label>
                     <Input
@@ -242,19 +281,19 @@ export default function ConversaEstrategicaPopup() {
                       value={formData.email}
                       onChange={handleInputChange}
                       required
-                      className="h-12"
+                      className="h-11 sm:h-12 text-base"
                     />
-                    {formErrors.email && <p className="text-red-500 text-sm mt-1">{formErrors.email}</p>}
+                    {formErrors.email && <p className="text-red-500 text-xs sm:text-sm mt-1">{formErrors.email}</p>}
                   </div>
                 </div>
 
-                <div className="grid gap-4 md:grid-cols-2">
+                <div className="grid gap-4 sm:grid-cols-2">
                   <div>
-                    <label htmlFor="whatsapp" className="block text-sm font-semibold text-gray-700 mb-2">
+                    <label htmlFor="whatsapp" className="block text-xs sm:text-sm font-semibold text-gray-700 mb-1.5 sm:mb-2">
                       WhatsApp *
                     </label>
-                    <div className="flex items-center border border-input rounded-md focus-within:ring-1 focus-within:ring-ring">
-                      <span className="pl-3 pr-2 text-gray-500 text-sm">🇧🇷 +55</span>
+                    <div className="flex items-center border border-input rounded-md focus-within:ring-1 focus-within:ring-ring h-11 sm:h-12">
+                      <span className="pl-3 pr-2 text-gray-500 text-xs sm:text-sm">🇧🇷 +55</span>
                       <Input
                         id="whatsapp"
                         name="whatsapp"
@@ -262,14 +301,14 @@ export default function ConversaEstrategicaPopup() {
                         value={formData.whatsapp}
                         onChange={handleInputChange}
                         required
-                        className="border-0 focus-visible:ring-0 h-12 flex-1"
+                        className="border-0 focus-visible:ring-0 h-full flex-1 text-base"
                         maxLength={15}
                       />
                     </div>
-                    {formErrors.whatsapp && <p className="text-red-500 text-sm mt-1">{formErrors.whatsapp}</p>}
+                    {formErrors.whatsapp && <p className="text-red-500 text-xs sm:text-sm mt-1">{formErrors.whatsapp}</p>}
                   </div>
                   <div>
-                    <label htmlFor="empresa" className="block text-sm font-semibold text-gray-700 mb-2">
+                    <label htmlFor="empresa" className="block text-xs sm:text-sm font-semibold text-gray-700 mb-1.5 sm:mb-2">
                       Nome da Empresa *
                     </label>
                     <Input
@@ -279,17 +318,17 @@ export default function ConversaEstrategicaPopup() {
                       value={formData.empresa}
                       onChange={handleInputChange}
                       required
-                      className="h-12"
+                      className="h-11 sm:h-12 text-base"
                     />
                   </div>
                 </div>
 
                 <div>
-                  <label htmlFor="segmento" className="block text-sm font-semibold text-gray-700 mb-2">
+                  <label htmlFor="segmento" className="block text-xs sm:text-sm font-semibold text-gray-700 mb-1.5 sm:mb-2">
                     Segmento da Empresa *
                   </label>
                   <Select name="segmento" onValueChange={(value) => handleSelectChange("segmento", value)} value={formData.segmento} required>
-                    <SelectTrigger className="h-12">
+                    <SelectTrigger className="h-11 sm:h-12">
                       <SelectValue placeholder="Selecione o segmento..." />
                     </SelectTrigger>
                     <SelectContent>
@@ -300,11 +339,12 @@ export default function ConversaEstrategicaPopup() {
                   </Select>
                 </div>
 
-                <div className="pt-6">
+                <div className="pt-4 sm:pt-6">
+                  {/* Desktop button */}
                   <Button
                     type="submit"
                     disabled={isSubmitting}
-                    className="w-full bg-orange-500 hover:bg-orange-600 text-white font-semibold text-base h-12 disabled:opacity-50"
+                    className="hidden sm:flex w-full bg-orange-500 hover:bg-orange-600 text-white font-semibold text-base h-12 disabled:opacity-50"
                   >
                     {isSubmitting ? (
                       <>⏳ Enviando...</>
@@ -312,7 +352,21 @@ export default function ConversaEstrategicaPopup() {
                       <>🎯 Agendar Minha Conversa Estratégica <ArrowRight className="ml-2 h-5 w-5" /></>
                     )}
                   </Button>
-                  <p className="text-center text-gray-500 text-sm mt-3">
+
+                  {/* Mobile button - Shorter text */}
+                  <Button
+                    type="submit"
+                    disabled={isSubmitting}
+                    className="sm:hidden w-full bg-orange-500 hover:bg-orange-600 text-white font-semibold text-base h-12 disabled:opacity-50"
+                  >
+                    {isSubmitting ? (
+                      <>⏳ Enviando...</>
+                    ) : (
+                      <>🎯 Agendar Conversa <ArrowRight className="ml-2 h-5 w-5" /></>
+                    )}
+                  </Button>
+
+                  <p className="text-center text-gray-500 text-xs sm:text-sm mt-2 sm:mt-3">
                     ✅ Reunião online gratuita • Sem compromisso
                   </p>
                 </div>

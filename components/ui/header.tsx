@@ -61,17 +61,33 @@ export default function Header() {
           </Link>
         </nav>
 
-        <div className="flex items-center gap-4">
+        <div className="flex items-center gap-2">
+          {/* Desktop CTA - Hidden on mobile */}
           <Button
             onClick={openPopup}
-            className="bg-orange-500 hover:bg-orange-600 text-white shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105"
+            className="hidden md:inline-flex bg-orange-500 hover:bg-orange-600 text-white shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105"
           >
             <Sparkles className="mr-2 h-4 w-4" />
             Agende uma conversa estratégica
           </Button>
 
-          {/* Mobile Menu Button */}
-          <Button variant="ghost" size="icon" className="md:hidden" onClick={() => setIsMenuOpen(!isMenuOpen)}>
+          {/* Mobile CTA - Shorter text */}
+          <Button
+            onClick={openPopup}
+            size="sm"
+            className="md:hidden bg-orange-500 hover:bg-orange-600 text-white shadow-lg"
+          >
+            <Sparkles className="mr-1.5 h-3.5 w-3.5" />
+            Agendar
+          </Button>
+
+          {/* Mobile Menu Button - Touch target compliant */}
+          <Button
+            variant="ghost"
+            size="icon"
+            className="md:hidden min-w-[44px] min-h-[44px]"
+            onClick={() => setIsMenuOpen(!isMenuOpen)}
+          >
             {isMenuOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
           </Button>
         </div>
@@ -80,22 +96,47 @@ export default function Header() {
       {/* Mobile Navigation */}
       {isMenuOpen && (
         <div className="md:hidden border-t bg-background/95 backdrop-blur-md">
-          <nav className="container mx-auto px-4 py-4 space-y-4">
-            <Link href="#solution" className="block text-sm font-medium text-muted-foreground hover:text-orange-500">
+          <nav className="container mx-auto px-4 py-6 space-y-4">
+            <Link
+              href="#solution"
+              className="block text-base font-medium text-muted-foreground hover:text-orange-500 py-3 min-h-[44px] flex items-center"
+              onClick={() => setIsMenuOpen(false)}
+            >
               Solução
             </Link>
-            <Link href="#pillars" className="block text-sm font-medium text-muted-foreground hover:text-orange-500">
+            <Link
+              href="#pillars"
+              className="block text-base font-medium text-muted-foreground hover:text-orange-500 py-3 min-h-[44px] flex items-center"
+              onClick={() => setIsMenuOpen(false)}
+            >
               Pilares CRF
             </Link>
             <Link
               href="#differentials"
-              className="block text-sm font-medium text-muted-foreground hover:text-orange-500"
+              className="block text-base font-medium text-muted-foreground hover:text-orange-500 py-3 min-h-[44px] flex items-center"
+              onClick={() => setIsMenuOpen(false)}
             >
               Diferenciais
             </Link>
-            <Link href="#results" className="block text-sm font-medium text-muted-foreground hover:text-orange-500">
+            <Link
+              href="#results"
+              className="block text-base font-medium text-muted-foreground hover:text-orange-500 py-3 min-h-[44px] flex items-center"
+              onClick={() => setIsMenuOpen(false)}
+            >
               Resultados
             </Link>
+
+            {/* Mobile CTA in menu */}
+            <Button
+              onClick={() => {
+                setIsMenuOpen(false)
+                openPopup()
+              }}
+              className="w-full bg-orange-500 hover:bg-orange-600 text-white min-h-[44px]"
+            >
+              <Sparkles className="mr-2 h-4 w-4" />
+              Agende sua conversa
+            </Button>
           </nav>
         </div>
       )}

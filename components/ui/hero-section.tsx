@@ -37,7 +37,7 @@ export default function HeroSection() {
   const { openPopup } = usePopup()
 
   return (
-    <section className="relative flex items-center justify-center overflow-hidden bg-gradient-to-br from-orange-50 via-background to-purple-50" style={{ height: '70vh' }}>
+    <section className="relative flex items-center justify-center overflow-hidden bg-gradient-to-br from-orange-50 via-background to-purple-50 min-h-[600px] md:min-h-[70vh]">
       {/* Animated Background Elements */}
       <div className="absolute inset-0 overflow-hidden">
         <div className="absolute top-1/4 left-1/4 w-64 h-64 bg-orange-100 rounded-full blur-3xl animate-pulse"></div>
@@ -61,87 +61,99 @@ export default function HeroSection() {
                 Solução Integrada de Nova Geração
               </div>
 
-              <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight leading-tight">
+              <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight leading-tight">
                 O <span className="text-orange-500">futuro padrão</span>
-                <span className="block">
+                <span className="block mt-2">
                   do atendimento
                 </span>
               </h1>
 
-              <p className="text-sm md:text-base text-muted-foreground leading-relaxed max-w-2xl">
+              <p className="text-sm sm:text-base md:text-lg text-muted-foreground leading-relaxed max-w-2xl">
                 A única solução que une <strong>Inteligência Artificial</strong>, <strong>Dados</strong> e
                 <strong> Consultoria Estratégica</strong> para revolucionar seus resultados de Conversão, Retenção e
                 Fidelização.
               </p>
             </div>
 
-            <div className="flex justify-start">
+            <div className="flex flex-col sm:flex-row justify-start gap-3">
+              {/* Desktop CTA */}
               <Button
                 onClick={openPopup}
                 size="lg"
-                className="bg-orange-500 hover:bg-orange-600 text-white shadow-xl hover:shadow-2xl transition-all duration-300 transform hover:scale-105 group"
+                className="hidden sm:inline-flex bg-orange-500 hover:bg-orange-600 text-white shadow-xl hover:shadow-2xl transition-all duration-300 transform hover:scale-105 group min-h-[44px]"
               >
                 <Play className="mr-2 h-5 w-5 group-hover:scale-110 transition-transform" />
                 Agende uma conversa estratégica
                 <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
               </Button>
+
+              {/* Mobile CTA - Shorter text */}
+              <Button
+                onClick={openPopup}
+                size="lg"
+                className="sm:hidden bg-orange-500 hover:bg-orange-600 text-white shadow-xl w-full min-h-[48px]"
+              >
+                <Play className="mr-2 h-5 w-5" />
+                Agendar conversa
+                <ArrowRight className="ml-2 h-5 w-5" />
+              </Button>
             </div>
 
             {/* Trust Indicators */}
-            <div className="flex items-center gap-8 pt-1">
+            <div className="grid grid-cols-3 sm:flex sm:items-center gap-4 sm:gap-8 pt-4">
               <div className="text-center">
                 <AnimatedCounter end={500} suffix="+" />
-                <p className="text-sm text-muted-foreground">Empresas Atendidas</p>
+                <p className="text-xs sm:text-sm text-muted-foreground mt-1">Empresas</p>
               </div>
               <div className="text-center">
                 <AnimatedCounter end={98} suffix="%" />
-                <p className="text-sm text-muted-foreground">Satisfação</p>
+                <p className="text-xs sm:text-sm text-muted-foreground mt-1">Satisfação</p>
               </div>
               <div className="text-center">
                 <AnimatedCounter end={35} suffix="%" />
-                <p className="text-sm text-muted-foreground">Aumento em Conversão</p>
+                <p className="text-xs sm:text-sm text-muted-foreground mt-1">Conversão</p>
               </div>
             </div>
           </div>
 
-          <div className="relative z-10">
+          <div className="relative z-10 mt-12 lg:mt-0 hidden lg:block">
             {/* Simplified Dashboard Mockup */}
             <motion.div
-              className="relative rounded-2xl overflow-hidden shadow-2xl bg-white border"
+              className="relative rounded-xl sm:rounded-2xl overflow-hidden shadow-xl sm:shadow-2xl bg-white border"
               initial={{ opacity: 0, scale: 0.9 }}
               whileInView={{ opacity: 1, scale: 1 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5 }}
             >
-              <div className="bg-orange-500 h-12 flex items-center px-6">
-                <div className="flex gap-2">
-                  <div className="w-3 h-3 bg-white/30 rounded-full"></div>
-                  <div className="w-3 h-3 bg-white/30 rounded-full"></div>
-                  <div className="w-3 h-3 bg-white/30 rounded-full"></div>
+              <div className="bg-orange-500 h-10 sm:h-12 flex items-center px-4 sm:px-6">
+                <div className="flex gap-1.5 sm:gap-2">
+                  <div className="w-2 h-2 sm:w-3 sm:h-3 bg-white/30 rounded-full"></div>
+                  <div className="w-2 h-2 sm:w-3 sm:h-3 bg-white/30 rounded-full"></div>
+                  <div className="w-2 h-2 sm:w-3 sm:h-3 bg-white/30 rounded-full"></div>
                 </div>
-                <div className="flex-1 text-center text-white font-medium">Opens Solution</div>
+                <div className="flex-1 text-center text-white font-medium text-sm sm:text-base">Opens Solution</div>
               </div>
-              <div className="p-6 space-y-4">
-                <div className="grid grid-cols-3 gap-4">
-                  <div className="bg-gradient-to-br from-orange-100 to-orange-50 p-4 rounded-lg">
-                    <div className="text-2xl font-bold text-orange-500">127%</div>
-                    <div className="text-sm text-muted-foreground">Conversão</div>
+              <div className="p-4 sm:p-6 space-y-3 sm:space-y-4">
+                <div className="grid grid-cols-3 gap-2 sm:gap-4">
+                  <div className="bg-gradient-to-br from-orange-100 to-orange-50 p-2 sm:p-4 rounded-lg">
+                    <div className="text-lg sm:text-2xl font-bold text-orange-500">127%</div>
+                    <div className="text-xs sm:text-sm text-muted-foreground">Conversão</div>
                   </div>
-                  <div className="bg-gradient-to-br from-purple-100 to-purple-50 p-4 rounded-lg">
-                    <div className="text-2xl font-bold text-purple-500">89%</div>
-                    <div className="text-sm text-muted-foreground">Retenção</div>
+                  <div className="bg-gradient-to-br from-purple-100 to-purple-50 p-2 sm:p-4 rounded-lg">
+                    <div className="text-lg sm:text-2xl font-bold text-purple-500">89%</div>
+                    <div className="text-xs sm:text-sm text-muted-foreground">Retenção</div>
                   </div>
-                  <div className="bg-gradient-to-br from-teal-100 to-teal-50 p-4 rounded-lg">
-                    <div className="text-2xl font-bold text-teal-500">94%</div>
-                    <div className="text-sm text-muted-foreground">Fidelização</div>
+                  <div className="bg-gradient-to-br from-teal-100 to-teal-50 p-2 sm:p-4 rounded-lg">
+                    <div className="text-lg sm:text-2xl font-bold text-teal-500">94%</div>
+                    <div className="text-xs sm:text-sm text-muted-foreground">Fidelização</div>
                   </div>
                 </div>
-                <div className="h-32 bg-gradient-to-r from-orange-100 to-yellow-100 rounded-lg flex items-end justify-around p-4">
+                <div className="h-24 sm:h-32 bg-gradient-to-r from-orange-100 to-yellow-100 rounded-lg flex items-end justify-around p-3 sm:p-4">
                   {[40, 65, 45, 80, 60, 90, 75].map((height, i) => (
                     <motion.div
                       key={i}
                       className="bg-orange-500 rounded-t"
-                      style={{ width: "12px" }}
+                      style={{ width: "8px" }}
                       initial={{ height: 0 }}
                       whileInView={{ height: `${height}%` }}
                       viewport={{ once: true }}
@@ -152,9 +164,9 @@ export default function HeroSection() {
               </div>
             </motion.div>
 
-            {/* Floating Cards */}
+            {/* Floating Cards - smaller on mobile */}
             <motion.div
-              className="absolute -top-6 -right-6 bg-white rounded-lg shadow-lg p-4 border z-30 hidden sm:block"
+              className="absolute -top-4 -right-4 sm:-top-6 sm:-right-6 bg-white rounded-lg shadow-lg p-2.5 sm:p-4 border z-30 hidden xs:block"
               animate={{
                 y: [0, -10, 0],
               }}
@@ -164,14 +176,14 @@ export default function HeroSection() {
                 ease: "easeInOut"
               }}
             >
-              <div className="flex items-center gap-2">
-                <Brain className="h-5 w-5 text-orange-500" />
-                <span className="text-sm font-medium">IA Ativa</span>
+              <div className="flex items-center gap-1.5 sm:gap-2">
+                <Brain className="h-4 w-4 sm:h-5 sm:w-5 text-orange-500" />
+                <span className="text-xs sm:text-sm font-medium">IA Ativa</span>
               </div>
             </motion.div>
 
             <motion.div
-              className="absolute -bottom-6 -left-6 bg-white rounded-lg shadow-lg p-4 border z-30 hidden sm:block"
+              className="absolute -bottom-4 -left-4 sm:-bottom-6 sm:-left-6 bg-white rounded-lg shadow-lg p-2.5 sm:p-4 border z-30 hidden xs:block"
               animate={{
                 y: [0, -8, 0],
               }}
@@ -182,9 +194,9 @@ export default function HeroSection() {
                 delay: 1.5
               }}
             >
-              <div className="flex items-center gap-2">
-                <TrendingUp className="h-5 w-5 text-green-500" />
-                <span className="text-sm font-medium">+28% NPS</span>
+              <div className="flex items-center gap-1.5 sm:gap-2">
+                <TrendingUp className="h-4 w-4 sm:h-5 sm:w-5 text-green-500" />
+                <span className="text-xs sm:text-sm font-medium">+28% NPS</span>
               </div>
             </motion.div>
           </div>

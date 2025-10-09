@@ -6,16 +6,16 @@ export default function StrategicDifferentials() {
     <section id="differentials" className="py-20 bg-background">
       <div className="container mx-auto px-4">
         <div className="text-center space-y-4 mb-16">
-          <h2 className="text-4xl md:text-5xl font-bold">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold">
             Nossos <span className="text-orange-500">Diferenciais</span>
           </h2>
-          <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
+          <p className="text-base sm:text-lg md:text-xl text-muted-foreground max-w-3xl mx-auto">
             O que nos torna únicos no mercado de soluções de atendimento
           </p>
         </div>
 
-        <div className="grid md:grid-cols-3 gap-8">
-          <Card className="p-8 text-center">
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 sm:gap-8">
+          <Card className="p-6 sm:p-8 text-center">
             <Brain className="h-12 w-12 text-gray-600 mx-auto mb-4" />
             <h3 className="text-xl font-bold mb-4">Inteligência Artificial</h3>
             <p className="text-muted-foreground">
@@ -23,7 +23,7 @@ export default function StrategicDifferentials() {
             </p>
           </Card>
 
-          <Card className="p-8 text-center">
+          <Card className="p-6 sm:p-8 text-center">
             <Database className="h-12 w-12 text-gray-600 mx-auto mb-4" />
             <h3 className="text-xl font-bold mb-4">Análise de Dados</h3>
             <p className="text-muted-foreground">
@@ -31,7 +31,7 @@ export default function StrategicDifferentials() {
             </p>
           </Card>
 
-          <Card className="p-8 text-center">
+          <Card className="p-6 sm:p-8 text-center">
             <HandshakeIcon className="h-12 w-12 text-gray-600 mx-auto mb-4" />
             <h3 className="text-xl font-bold mb-4">Consultoria Estratégica</h3>
             <p className="text-muted-foreground">

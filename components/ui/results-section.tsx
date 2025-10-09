@@ -6,16 +6,16 @@ export default function ResultsSection() {
     <section id="results" className="py-20 bg-gray-50">
       <div className="container mx-auto px-4">
         <div className="text-center space-y-4 mb-16">
-          <h2 className="text-4xl md:text-5xl font-bold">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold">
             Resultados que <span className="text-orange-500">Transformam</span>
           </h2>
-          <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
+          <p className="text-base sm:text-lg md:text-xl text-muted-foreground max-w-3xl mx-auto">
             Empresas que implementaram nossa solução obtiveram resultados extraordinários
           </p>
         </div>
 
-        <div className="grid md:grid-cols-3 gap-8">
-          <Card className="p-8 text-center">
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 sm:gap-8">
+          <Card className="p-6 sm:p-8 text-center">
             <CheckCircle className="h-12 w-12 text-green-500 mx-auto mb-4" />
             <div className="text-3xl font-bold text-orange-500 mb-2">+127%</div>
             <div className="text-lg font-semibold mb-2">Conversão</div>
@@ -24,7 +24,7 @@ export default function ResultsSection() {
             </p>
           </Card>
 
-          <Card className="p-8 text-center">
+          <Card className="p-6 sm:p-8 text-center">
             <Users className="h-12 w-12 text-purple-500 mx-auto mb-4" />
             <div className="text-3xl font-bold text-orange-500 mb-2">89%</div>
             <div className="text-lg font-semibold mb-2">Retenção</div>
@@ -33,7 +33,7 @@ export default function ResultsSection() {
             </p>
           </Card>
 
-          <Card className="p-8 text-center">
+          <Card className="p-6 sm:p-8 text-center">
             <HandshakeIcon className="h-12 w-12 text-teal-500 mx-auto mb-4" />
             <div className="text-3xl font-bold text-orange-500 mb-2">94%</div>
             <div className="text-lg font-semibold mb-2">Fidelização</div>

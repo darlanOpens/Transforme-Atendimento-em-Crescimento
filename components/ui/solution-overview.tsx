@@ -122,17 +122,17 @@ function SolutionOverview() {
             <Shield className="h-4 w-4" />
             Solução Integrada
           </div>
-          <h2 className="text-4xl md:text-5xl font-bold tracking-tight">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold tracking-tight">
             Vá além da plataforma.
-            <span className="block text-[#FF7A00]">Conquiste resultados reais.</span>
+            <span className="block text-[#FF7A00] mt-1">Conquiste resultados reais.</span>
           </h2>
-          <p className="mx-auto max-w-3xl text-xl text-muted-foreground leading-relaxed">
+          <p className="mx-auto max-w-3xl text-base sm:text-lg md:text-xl text-muted-foreground leading-relaxed">
             A Opens é uma solução estratégica que transforma seu atendimento em um motor de crescimento, unificando
             canais, dados e insights para criar experiências excepcionais.
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
           {features.map((feature, index) => (
             <FeatureCard 
               key={index} 
